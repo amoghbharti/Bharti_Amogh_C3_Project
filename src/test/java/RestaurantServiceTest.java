@@ -3,6 +3,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -71,5 +73,15 @@ class RestaurantServiceTest {
         assertEquals(initialNumberOfRestaurants + 1,service.getRestaurants().size());
     }
     //<<<<<<<<<<<<<<<<<<<<ADMIN: ADDING & REMOVING RESTAURANTS>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+    @Test
+    public void order_total_should_be_388_when_selected_item_are_Sweet_corn_soup_and_Vegetable_lasagne(){
+        List<String> selected = new ArrayList<String>();
+        selected.add("Sweet corn soup");
+        selected.add("Vegetable lasagne");
+
+        assertEquals(388,restaurant.getOrderTotal(selected));
+    }
 
 }
